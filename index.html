@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ==========================================================================
+     SEO
+     ------------------------------------------------------------------------
+     BEFORE PUBLISHING: replace every occurrence of
+       https://quantstuffs.com   -> your real Cloudflare Pages / custom domain
+       YOUR-LINKEDIN-HANDLE            -> your LinkedIn vanity URL
+       kevinkarlee              -> your GitHub username
+       zokpodokevin.123@gmail.com          -> your contact email
+     A find-and-replace across the repo covers all pages at once.
+     ========================================================================== -->
+<title>Koessi Kevin Zokpodo | Quantitative Finance Portfolio</title>
+<meta name="description" content="Quantitative finance portfolio of Koessi Kevin Zokpodo: MFE candidate at Africa Business School (UM6P) and MBA in Business Analytics at Jindal Global Business School. Derivatives pricing, stochastic control, portfolio optimisation and systematic trading research.">
+<meta name="author" content="Koessi Kevin Zokpodo">
+<link rel="canonical" href="https://quantstuffs.com/">
+
+<!-- Open Graph - controls the LinkedIn / Slack / WhatsApp link preview.
+     og:image must be an ABSOLUTE URL: relative paths are ignored by scrapers. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Koessi Kevin Zokpodo">
+<meta property="og:title" content="Koessi Kevin Zokpodo | Quantitative Finance Portfolio">
+<meta property="og:description" content="MFE candidate (UM6P) and MBA in Business Analytics (JGBS). Derivatives pricing, stochastic control, systematic trading. First place at UNITAR, Geneva.">
+<meta property="og:url" content="https://quantstuffs.com/">
+<meta property="og:image" content="https://quantstuffs.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Koessi Kevin Zokpodo - quantitative finance portfolio">
+<meta property="og:locale" content="en_GB">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Koessi Kevin Zokpodo | Quantitative Finance Portfolio">
+<meta name="twitter:description" content="MFE candidate (UM6P) and MBA in Business Analytics (JGBS). Derivatives pricing, stochastic control and systematic trading.">
+<meta name="twitter:image" content="https://quantstuffs.com/assets/img/og-image.png">
+
+<!-- Icons & browser chrome -->
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Fonts: Inter for text, JetBrains Mono for labels and figures.
+     `display=swap` means the page renders in the system fallback first and
+     never blocks on the network. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+
+<!-- Styles -->
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Theme script is intentionally NOT deferred: it must run before the first
+     paint so dark-mode visitors never see a white flash. -->
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/main.js" defer></script>
+
+<!-- Structured data: helps search engines associate the site with a person. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Koessi Kevin Zokpodo",
+  "alternateName": "Karle",
+  "url": "https://quantstuffs.com/",
+  "jobTitle": "Master in Financial Engineering candidate",
+  "description": "Quantitative finance student specialising in derivatives pricing, stochastic control and systematic trading.",
+  "knowsAbout": [
+    "Stochastic calculus", "Derivatives pricing", "Portfolio optimisation",
+    "Actuarial science", "Systematic trading", "Risk management",
+    "Business analytics", "Monte Carlo simulation"
+  ],
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Africa Business School, Mohammed VI Polytechnic University (UM6P)" },
+    { "@type": "CollegeOrUniversity", "name": "Jindal Global Business School" }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ==========================================================================
+     Header
+     ========================================================================== -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">KZ</span>
+      <span>Koessi Kevin Zokpodo</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list" id="primary-nav">
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#projects">Projects</a></li>
+        <li><a class="nav__link" href="#recognition">Recognition</a></li>
+        <li><a class="nav__link" href="#credentials">Credentials</a></li>
+        <li><a class="nav__link" href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Dark / light toggle -->
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark mode">
+        <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+        </svg>
+      </button>
+
+      <!-- Mobile menu button (hidden above 780px by CSS) -->
+      <button class="icon-btn nav__toggle" type="button" data-nav-toggle
+              aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========================================================================
+       Hero
+       ======================================================================== -->
+  <section class="hero">
+    <div class="container">
+
+     <!-- Decorative only: an equity curve motif balancing the empty right
+          half of the masthead. Hidden below 1100px by the stylesheet. -->
+     <svg class="hero__motif" viewBox="0 0 400 260" fill="none"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+       <defs>
+         <linearGradient id="motifFade" x1="0" y1="0" x2="0" y2="1">
+           <stop offset="0%"   stop-color="currentColor" stop-opacity="0.22"/>
+           <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+         </linearGradient>
+       </defs>
+       <g class="motif-grid">
+         <path d="M0 60h400M0 110h400M0 160h400M0 210h400"/>
+         <path d="M80 0v260M160 0v260M240 0v260M320 0v260"/>
+       </g>
+       <path class="motif-area"
+             d="M0 205 L40 190 L80 196 L120 158 L160 168 L200 132 L240 112 L280 120 L320 78 L360 56 L400 34 L400 260 L0 260 Z"/>
+       <path class="motif-line"
+             d="M0 205 L40 190 L80 196 L120 158 L160 168 L200 132 L240 112 L280 120 L320 78 L360 56 L400 34"/>
+       <circle class="motif-point" cx="400" cy="34" r="4"/>
+       <path class="motif-base" d="M0 240h400"/>
+     </svg>
+
+     <div class="hero__inner">
+      <p class="hero__eyebrow">Seeking a final-year Master&rsquo;s internship (PFE)</p>
+
+      <h1 class="hero__name">Koessi Kevin Zokpodo</h1>
+
+      <p class="hero__title">
+        Master in Financial Engineering &mdash; Africa Business School, UM6P
+        &middot; MBA in Business Analytics &mdash; Jindal Global Business School
+      </p>
+
+      <p class="hero__pitch">
+        I build models that turn market structure into decisions &mdash; from
+        derivatives pricing and stochastic control to systematic strategies and
+        multi-asset risk. Looking for a final-year Master&rsquo;s internship
+        (PFE) in quantitative research, trading or risk at a hedge fund or
+        investment bank.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#projects">View selected work</a>
+        <!-- TODO: drop your CV at assets/docs/cv-koessi-kevin-zokpodo.pdf,
+             then remove the `btn--pending` class below to activate this link. -->
+        <a class="btn btn--ghost btn--pending" href="assets/docs/cv-koessi-kevin-zokpodo.pdf"
+           aria-disabled="true">
+          Download CV (PDF)
+        </a>
+      </div>
+
+      <dl class="hero__facts">
+        <div class="hero__fact">
+          <dt>Focus</dt>
+          <dd>Derivatives &amp; risk</dd>
+        </div>
+        <div class="hero__fact">
+          <dt>Core stack</dt>
+          <dd>Python &middot; C++ &middot; MATLAB</dd>
+        </div>
+        <div class="hero__fact">
+          <dt>Based in</dt>
+          <dd>Morocco</dd>
+        </div>
+        <!-- TODO: replace with the exact months of your PFE window. -->
+        <div class="hero__fact">
+          <dt>Looking for</dt>
+          <dd>PFE internship</dd>
+        </div>
+      </dl>
+     </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Stat band - the three-second read
+       ======================================================================== -->
+  <section class="stat-band" aria-label="Key figures">
+    <div class="container">
+      <div class="stat-band__grid">
+        <div class="stat">
+          <span class="stat__value">1st</span>
+          <span class="stat__label">Place, UNITAR policy case presentation &mdash; Geneva, April 2025</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">2</span>
+          <span class="stat__label">Graduate degrees: MFE (UM6P) and MBA Business Analytics (JGBS)</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">6</span>
+          <span class="stat__label">Research projects across derivatives, risk and markets</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       About
+       ======================================================================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <p class="section__eyebrow"><span class="num">01</span> &mdash; About</p>
+        <h2 class="section__title">Background and technical toolkit</h2>
+      </div>
+
+      <div class="about" data-reveal>
+        <!-- Left column: the narrative -->
+        <div class="prose">
+          <p>
+            I am a Master in Financial Engineering candidate at Africa Business
+            School (Mohammed VI Polytechnic University) in Morocco, and I am
+            reading in parallel for an MBA in Business Analytics at Jindal
+            Global Business School in India. The two degrees are deliberate: one
+            gives me the stochastic modelling and derivatives machinery, the
+            other the data and decision-making side that turns a model into
+            something an institution can actually act on.
+          </p>
+          <p>
+            My work sits where theory meets implementation. I am equally
+            comfortable deriving a Hamilton&ndash;Jacobi&ndash;Bellman equation
+            and shipping the code that prices or hedges against it, and I care
+            as much about whether a model survives transaction costs and
+            realistic frictions as about whether it is elegant. That discipline
+            is also certified: I have cleared the full two-phase evaluations of
+            FTMO and FundedNext, which test exactly one thing &mdash; hitting a
+            target without ever breaching a drawdown or daily loss limit.
+          </p>
+          <p>
+            My research to date spans optimal portfolio allocation under
+            stochastic volatility, the market-structure conditions required for
+            a new index futures contract, AI-assisted macro analysis applied to
+            systematic gold trading, and a quantitative development-policy model
+            presented at the United Nations in Geneva. I am currently extending
+            that work towards emerging-market sovereign risk and multi-asset
+            stress testing.
+          </p>
+
+          <p class="about__statement">
+            I am looking for a final-year Master&rsquo;s internship (PFE) in
+            quantitative research, derivatives structuring or risk at a hedge
+            fund or investment bank.
+          </p>
+        </div>
+
+        <!-- Right column: the toolkit.
+             To add a skill, drop one <li class="chip"> into the right card. -->
+        <div class="toolkit">
+
+          <div class="toolkit-card">
+            <div class="toolkit-card__head">
+              <span class="toolkit-card__icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m8 6-6 6 6 6M16 6l6 6-6 6"/>
+                </svg>
+              </span>
+              <h3 class="toolkit-card__title">Programming</h3>
+            </div>
+            <ul class="chips">
+              <li class="chip">Python</li>
+              <li class="chip">C++</li>
+              <li class="chip">MATLAB</li>
+              <li class="chip">R</li>
+              <li class="chip">MQL5 / MetaTrader 5</li>
+              <li class="chip">SQL</li>
+            </ul>
+          </div>
+
+          <div class="toolkit-card">
+            <div class="toolkit-card__head">
+              <span class="toolkit-card__icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 4H6l7 8-7 8h12"/>
+                </svg>
+              </span>
+              <h3 class="toolkit-card__title">Quantitative methods</h3>
+            </div>
+            <ul class="chips">
+              <li class="chip">Stochastic calculus</li>
+              <li class="chip">Derivatives pricing</li>
+              <li class="chip">Stochastic control</li>
+              <li class="chip">Portfolio optimisation</li>
+              <li class="chip">Monte Carlo</li>
+              <li class="chip">Econometrics</li>
+              <li class="chip">Actuarial science</li>
+            </ul>
+          </div>
+
+          <div class="toolkit-card">
+            <div class="toolkit-card__head">
+              <span class="toolkit-card__icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3v18h18"/><path d="m7 14 4-5 3 3 5-7"/>
+                </svg>
+              </span>
+              <h3 class="toolkit-card__title">Applied domains</h3>
+            </div>
+            <ul class="chips">
+              <li class="chip">Market risk &amp; VaR</li>
+              <li class="chip">Stress testing</li>
+              <li class="chip">Fixed income</li>
+              <li class="chip">Systematic trading</li>
+              <li class="chip">Backtesting</li>
+              <li class="chip">Business analytics</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Education, full width beneath the two columns -->
+      <div class="edu" data-reveal>
+        <h3 class="skill-group__title">Education</h3>
+        <div class="edu__grid">
+          <article class="edu-card">
+            <h4 class="edu-card__degree">Master in Financial Engineering</h4>
+            <p class="edu-card__school">
+              Africa Business School &mdash; Mohammed VI Polytechnic University (UM6P)
+            </p>
+            <p class="edu-card__meta">Morocco</p>
+          </article>
+
+          <article class="edu-card">
+            <h4 class="edu-card__degree">MBA in Business Analytics</h4>
+            <p class="edu-card__school">
+              Jindal Global Business School (JGBS)
+            </p>
+            <p class="edu-card__meta">India</p>
+          </article>
+        </div>
+      </div>
+  </section>
+
+  <!-- ========================================================================
+       Projects
+       ------------------------------------------------------------------------
+       TO ADD A PROJECT:
+         1. copy projects/_template.html to projects/your-project.html
+         2. copy one <article class="card" data-index="NN"> block below and edit
+            it - `data-index` is the faint numeral watermarked in the corner
+       The grid is `auto-fill`, so any number of cards lays out correctly.
+       ======================================================================== -->
+  <section class="section section--subtle" id="projects">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <p class="section__eyebrow"><span class="num">02</span> &mdash; Projects</p>
+        <h2 class="section__title">Selected quantitative research</h2>
+        <p class="section__intro">
+          Academic and independent work in derivatives, portfolio theory, market
+          microstructure and risk. Each page carries an executive summary, the
+          methodology, and the technical stack used.
+        </p>
+      </div>
+
+      <div class="grid" data-reveal>
+
+        <!-- ---------------------------------------------------------------- -->
+        <article class="card" data-index="01">
+          <div class="card__top">
+            <span class="card__index">P-01</span>
+            <span class="badge badge--done"><span class="badge__dot" aria-hidden="true"></span>Completed</span>
+          </div>
+          <h3 class="card__title">
+            <a class="card__link" href="projects/macro-intelligence-agent-xauusd.html">
+              Macro Intelligence Agent for XAU/USD
+            </a>
+          </h3>
+          <p class="card__desc">
+            An AI agent architecture that fuses macroeconomic intelligence with a
+            systematic gold trading engine, translating rate expectations, real
+            yields and risk sentiment into position sizing.
+          </p>
+          <div class="card__foot">
+            <ul class="card__tags">
+              <li class="card__tag">Python</li>
+              <li class="card__tag">MQL5</li>
+              <li class="card__tag">LLM agents</li>
+            </ul>
+            <span class="card__cue" aria-hidden="true">Read &rarr;</span>
+          </div>
+        </article>
+
+        <!-- ---------------------------------------------------------------- -->
+        <article class="card" data-index="02">
+          <div class="card__top">
+            <span class="card__index">P-02</span>
+            <span class="badge badge--done"><span class="badge__dot" aria-hidden="true"></span>Completed</span>
+          </div>
+          <h3 class="card__title">
+            <a class="card__link" href="projects/merton-portfolio-jourdain-sbai.html">
+              Merton Portfolio Problem under the Jourdain&ndash;Sbai Model
+            </a>
+          </h3>
+          <p class="card__desc">
+            Optimal consumption and allocation when volatility is stochastic:
+            deriving the HJB equation under the Jourdain&ndash;Sbai dynamics and
+            solving it numerically against the constant-volatility benchmark.
+          </p>
+          <div class="card__foot">
+            <ul class="card__tags">
+              <li class="card__tag">MATLAB</li>
+              <li class="card__tag">Stochastic control</li>
+            </ul>
+            <span class="card__cue" aria-hidden="true">Read &rarr;</span>
+          </div>
+        </article>
+
+        <!-- ---------------------------------------------------------------- -->
+        <article class="card" data-index="03">
+          <div class="card__top">
+            <span class="card__index">P-03</span>
+            <span class="badge badge--done"><span class="badge__dot" aria-hidden="true"></span>Completed</span>
+          </div>
+          <h3 class="card__title">
+            <a class="card__link" href="projects/masi-20-futures-feasibility.html">
+              MASI 20 Futures &mdash; Feasibility Study
+            </a>
+          </h3>
+          <p class="card__desc">
+            Group research on the conditions under which a MASI 20 index futures
+            contract could succeed on the Casablanca exchange: liquidity,
+            contract design, hedging demand and the cost of carry.
+          </p>
+          <div class="card__foot">
+            <ul class="card__tags">
+              <li class="card__tag">Python</li>
+              <li class="card__tag">Market microstructure</li>
+            </ul>
+            <span class="card__cue" aria-hidden="true">Read &rarr;</span>
+          </div>
+        </article>
+
+        <!-- ---------------------------------------------------------------- -->
+        <article class="card" data-index="04">
+          <div class="card__top">
+            <span class="card__index">P-04</span>
+            <span class="badge badge--done"><span class="badge__dot" aria-hidden="true"></span>Award</span>
+          </div>
+          <h3 class="card__title">
+            <a class="card__link" href="projects/bihar-integrated-mobility-initiative.html">
+              Bihar Integrated Mobility Initiative
+            </a>
+          </h3>
+          <p class="card__desc">
+            First place at UNITAR, Geneva. A human-capital investment model that
+            uses Monte Carlo simulation and panel regression to price the return
+            on removing a child from the labour market.
+          </p>
+          <div class="card__foot">
+            <ul class="card__tags">
+              <li class="card__tag">Python</li>
+              <li class="card__tag">Monte Carlo</li>
+              <li class="card__tag">Econometrics</li>
+            </ul>
+            <span class="card__cue" aria-hidden="true">Read &rarr;</span>
+          </div>
+        </article>
+
+        <!-- ---------------------------------------------------------------- -->
+        <article class="card" data-index="05">
+          <div class="card__top">
+            <span class="card__index">P-05</span>
+            <span class="badge badge--wip"><span class="badge__dot" aria-hidden="true"></span>In progress</span>
+          </div>
+          <h3 class="card__title">
+            <a class="card__link" href="projects/em-sovereign-risk-premium.html">
+              Emerging Markets Sovereign Risk Premium
+            </a>
+          </h3>
+          <p class="card__desc">
+            Building a frontier-market sovereign yield curve and decomposing the
+            country risk premium into its credit, currency and liquidity
+            components.
+          </p>
+          <div class="card__foot">
+            <ul class="card__tags">
+              <li class="card__tag">Python</li>
+              <li class="card__tag">Fixed income</li>
+            </ul>
+            <span class="card__cue" aria-hidden="true">Read &rarr;</span>
+          </div>
+        </article>
+
+        <!-- ---------------------------------------------------------------- -->
+        <article class="card" data-index="06">
+          <div class="card__top">
+            <span class="card__index">P-06</span>
+            <span class="badge badge--wip"><span class="badge__dot" aria-hidden="true"></span>In progress</span>
+          </div>
+          <h3 class="card__title">
+            <a class="card__link" href="projects/systemic-stress-testing-framework.html">
+              Systemic Stress-Testing Framework
+            </a>
+          </h3>
+          <p class="card__desc">
+            A multi-asset stress-testing engine combining CoVaR-based systemic
+            risk measurement with reverse stress testing to surface the scenarios
+            that actually break a portfolio.
+          </p>
+          <div class="card__foot">
+            <ul class="card__tags">
+              <li class="card__tag">Python</li>
+              <li class="card__tag">C++</li>
+              <li class="card__tag">Risk</li>
+            </ul>
+            <span class="card__cue" aria-hidden="true">Read &rarr;</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Recognition - United Nations, Geneva
+       ------------------------------------------------------------------------
+       TODO: name your team-mates here if you want them credited.
+       ======================================================================== -->
+  <section class="section" id="recognition">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <p class="section__eyebrow"><span class="num">03</span> &mdash; Recognition</p>
+        <h2 class="section__title">First place at the United Nations, Geneva</h2>
+        <p class="section__intro">
+          Selected for a UNITAR programme at the Palais des Nations in April
+          2025, where our team took first place for the presentation of a
+          development-policy case built on quantitative foundations.
+        </p>
+      </div>
+
+      <div class="feature" data-reveal>
+        <!-- Photo -->
+        <div class="feature__media">
+          <img src="assets/img/geneva/un-certificate.jpg"
+               alt="Koessi Kevin Zokpodo receiving a certificate in front of the Palais des Nations, United Nations Geneva"
+               width="960" height="1280" loading="lazy" decoding="async">
+          <p class="feature__ribbon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="m8.2 13.9-1.4 6.6 5.2-2.8 5.2 2.8-1.4-6.6"/>
+            </svg>
+            <span>
+              <strong>First place &mdash; team presentation</strong>
+              <span>UNITAR &middot; Palais des Nations, Geneva</span>
+            </span>
+          </p>
+        </div>
+
+        <!-- Copy -->
+        <div>
+          <div class="feature__meta">
+            <span class="badge badge--done"><span class="badge__dot" aria-hidden="true"></span>Award</span>
+            <span class="mono text-muted">April 2025 &middot; Team of four &middot; International cohort</span>
+          </div>
+
+          <h3 class="section__title" style="font-size: var(--fs-xl)">
+            Bihar Integrated Mobility Initiative
+          </h3>
+
+          <div class="prose">
+            <p>
+              Bihar is one of the sharpest inequality problems in the world: caste
+              exclusion has hardened into an economic trap where a child is worth
+              more to a poor household as labour than as a student. Our team
+              modelled that trade-off explicitly, and designed an intervention
+              that pays a household exactly what the child's labour is worth
+              &mdash; then proved the intervention could fund itself.
+            </p>
+            <p>
+              What made the case win was not the policy idea but the rigour
+              underneath it: a Monte Carlo engine that stress-tested a twelve-year
+              education path against economic shocks, a panel regression with
+              fixed effects and an instrumental variable to defend the causal
+              claim, and a unit-economics model showing the programme financed by
+              exporting artisanal goods rather than by aid.
+            </p>
+          </div>
+
+          <dl class="feature__figures">
+            <div class="feature__figure">
+              <dt>Graduation rate</dt>
+              <dd>14.4% &rarr; 69.1%</dd>
+            </div>
+            <div class="feature__figure">
+              <dt>Simulations</dt>
+              <dd>10,000 paths</dd>
+            </div>
+            <div class="feature__figure">
+              <dt>Self-funding</dt>
+              <dd>Within 7 years</dd>
+            </div>
+          </dl>
+
+          <p>
+            <a class="link-arrow" href="projects/bihar-integrated-mobility-initiative.html">
+              Read the full case and methodology
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Photo gallery. Click any image to open it full size. -->
+      <ul class="gallery" data-reveal>
+        <li class="gallery__item" data-lightbox="Our team after the final presentation, UNITAR session in Geneva"
+            tabindex="0" role="button" aria-label="Open photo: team after the final presentation">
+          <img src="assets/img/geneva/team.jpg"
+               alt="The four-person team after the final presentation at the UNITAR session"
+               width="960" height="1280" loading="lazy" decoding="async">
+          <p class="gallery__caption">The team after the final presentation</p>
+        </li>
+
+        <li class="gallery__item" data-lightbox="The full cohort at the Allee des Nations, United Nations Geneva"
+            tabindex="0" role="button" aria-label="Open photo: cohort at the Allee des Nations">
+          <img src="assets/img/geneva/allee-des-nations.jpg"
+               alt="The full international cohort holding certificates at the Allee des Nations, United Nations Geneva"
+               width="1800" height="1350" loading="lazy" decoding="async">
+          <p class="gallery__caption">The cohort at the Allée des Nations</p>
+        </li>
+
+        <li class="gallery__item" data-lightbox="At the Allee des Nations with the programme faculty"
+            tabindex="0" role="button" aria-label="Open photo: with the programme faculty">
+          <img src="assets/img/geneva/flags-portrait.jpg"
+               alt="Koessi Kevin Zokpodo with a member of the programme faculty at the Allee des Nations"
+               width="675" height="1200" loading="lazy" decoding="async">
+          <p class="gallery__caption">With the programme faculty</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Credentials - trading certifications
+       ------------------------------------------------------------------------
+       Ordered by what a trading or risk desk actually cares about:
+         1. a complete two-phase evaluation under hard risk limits
+         2. the largest account size traded
+         3. the performance tiers awarded on top
+       ======================================================================== -->
+  <section class="section section--subtle" id="credentials">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <p class="section__eyebrow"><span class="num">04</span> &mdash; Credentials</p>
+        <h2 class="section__title">Trading certifications</h2>
+        <p class="section__intro">
+          Alongside the coursework, I have passed the full evaluation process of
+          two proprietary trading firms. What these programmes test is exactly
+          what a desk cares about: reaching a return objective while never
+          breaching a maximum drawdown or a daily loss limit. Click any
+          certificate to view it full size.
+        </p>
+      </div>
+
+      <div class="cred-groups" data-reveal>
+
+        <!-- 1. FTMO, phase one -->
+        <article class="cred">
+          <div class="cred__thumb" data-lightbox="FTMO Challenge - passed"
+               tabindex="0" role="button" aria-label="Open certificate: FTMO Challenge passed">
+            <img src="assets/img/certs/ftmo-challenge.jpg"
+                 alt="FTMO certificate confirming the FTMO Challenge was passed"
+                 width="1000" height="1000" loading="lazy" decoding="async">
+            <span class="cred__zoom" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/>
+              </svg>
+            </span>
+          </div>
+          <div class="cred__body">
+            <p class="cred__issuer">FTMO</p>
+            <h3 class="cred__title">FTMO Challenge &mdash; passed</h3>
+            <p class="cred__desc">
+              Phase one of the FTMO evaluation: reaching the profit objective
+              while respecting the defined maximum loss limits.
+            </p>
+            <p class="cred__date">4 March 2026</p>
+          </div>
+        </article>
+
+        <!-- 2. FTMO, evaluation complete -->
+        <article class="cred">
+          <div class="cred__thumb" data-lightbox="FTMO Verification - passed, full evaluation process complete"
+               tabindex="0" role="button" aria-label="Open certificate: FTMO Verification passed">
+            <img src="assets/img/certs/ftmo-verification.jpg"
+                 alt="FTMO certificate confirming the Verification phase was passed"
+                 width="1000" height="1000" loading="lazy" decoding="async">
+            <span class="cred__zoom" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/>
+              </svg>
+            </span>
+          </div>
+          <div class="cred__body">
+            <p class="cred__issuer">FTMO</p>
+            <h3 class="cred__title">FTMO Verification &mdash; passed</h3>
+            <p class="cred__desc">
+              The complete two-phase evaluation cleared, confirming consistent
+              results across both stages and eligibility to manage an FTMO
+              account.
+            </p>
+            <p class="cred__date">9 March 2026</p>
+          </div>
+        </article>
+
+        <!-- 3. Largest evaluation account -->
+        <article class="cred">
+          <div class="cred__thumb" data-lightbox="FundedNext Elite Trader - Stellar 2-Step Challenge, 200K account"
+               tabindex="0" role="button" aria-label="Open certificate: FundedNext 200K challenge">
+            <img src="assets/img/certs/fundednext-elite-200k.jpg"
+                 alt="FundedNext Elite Trader certificate for the Stellar 2-Step Challenge on a 200K account"
+                 width="1200" height="834" loading="lazy" decoding="async">
+            <span class="cred__zoom" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/>
+              </svg>
+            </span>
+          </div>
+          <div class="cred__body">
+            <p class="cred__issuer">FundedNext</p>
+            <h3 class="cred__title">Stellar 2-Step Challenge &mdash; $200K</h3>
+            <p class="cred__desc">
+              Phase one cleared on the largest account size I have traded,
+              awarded with Elite Trader status.
+            </p>
+            <p class="cred__date">16 January 2026</p>
+          </div>
+        </article>
+
+        <!-- 4. Top performance tier -->
+        <article class="cred">
+          <div class="cred__thumb" data-lightbox="FundedNext Crown Trader certificate"
+               tabindex="0" role="button" aria-label="Open certificate: FundedNext Crown Trader">
+            <img src="assets/img/certs/fundednext-crown.jpg"
+                 alt="FundedNext Crown Trader certificate of appreciation"
+                 width="1200" height="834" loading="lazy" decoding="async">
+            <span class="cred__zoom" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/>
+              </svg>
+            </span>
+          </div>
+          <div class="cred__body">
+            <p class="cred__issuer">FundedNext</p>
+            <h3 class="cred__title">Crown Trader</h3>
+            <p class="cred__desc">
+              The firm&rsquo;s highest recognition tier, awarded for a proven
+              all-weather strategy: consistent execution and risk allocation
+              across changing market conditions.
+            </p>
+            <p class="cred__date">30 October 2025</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Repeat awards, listed compactly rather than as three more cards -->
+      <ul class="cred-list" data-reveal>
+        <li>
+          <span class="cred-list__name">Elite Trader</span>
+          <span class="text-muted">FundedNext &mdash; strategy execution and risk allocation</span>
+          <span class="cred-list__meta">12 Nov 2025</span>
+        </li>
+        <li>
+          <span class="cred-list__name">Elite Trader</span>
+          <span class="text-muted">FundedNext &mdash; strategy execution and risk allocation</span>
+          <span class="cred-list__meta">29 Sep 2025</span>
+        </li>
+        <li>
+          <span class="cred-list__name">Elite Trader</span>
+          <span class="text-muted">FundedNext &mdash; strategy execution and risk allocation</span>
+          <span class="cred-list__meta">5 May 2025</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Contact
+       ------------------------------------------------------------------------
+       TODO: replace the placeholder handles below before publishing.
+       ======================================================================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <p class="section__eyebrow"><span class="num">05</span> &mdash; Contact</p>
+        <h2 class="section__title">Get in touch</h2>
+        <p class="section__intro">
+          Open to final-year Master&rsquo;s internship (PFE) opportunities in
+          quantitative research, trading and risk. The fastest way to reach me
+          is email.
+        </p>
+      </div>
+
+      <ul class="contact-list" data-reveal>
+        <li>
+          <a class="contact-item" href="mailto:zokpodokevin.123@gmail.com">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-10 6L2 7"/>
+            </svg>
+            <span>
+              <span class="contact-item__label">Email</span>
+              <span class="contact-item__value">zokpodokevin.123@gmail.com</span>
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a class="contact-item" href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE"
+             target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-9h4v1.5"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            <span>
+              <span class="contact-item__label">LinkedIn</span>
+              <span class="contact-item__value">/in/YOUR-LINKEDIN-HANDLE</span>
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a class="contact-item" href="https://github.com/kevinkarlee"
+             target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.9-2.6c3-.3 6.2-1.5 6.2-6.7A5.2 5.2 0 0 0 19 5.1a4.9 4.9 0 0 0-.1-3.6s-1.1-.3-3.6 1.4a12.3 12.3 0 0 0-6.6 0C6.2 1.2 5.1 1.5 5.1 1.5A4.9 4.9 0 0 0 5 5.1a5.2 5.2 0 0 0-1.4 3.6c0 5.2 3.2 6.4 6.2 6.7a3.4 3.4 0 0 0-.9 2.6V22"/>
+            </svg>
+            <span>
+              <span class="contact-item__label">GitHub</span>
+              <span class="contact-item__value">@kevinkarlee</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================================
+     Footer
+     ========================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand-col">
+        <p class="site-footer__brand">
+          <span class="brand__mark" aria-hidden="true">KZ</span>
+          Koessi Kevin Zokpodo
+        </p>
+        <p class="site-footer__tagline">
+          Quantitative finance research &mdash; derivatives pricing, stochastic
+          control and multi-asset risk. Seeking a final-year Master&rsquo;s
+          internship (PFE).
+        </p>
+      </div>
+
+      <div>
+        <p class="site-footer__title">Site</p>
+        <ul class="site-footer__list">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#recognition">Recognition</a></li>
+          <li><a href="index.html#credentials">Credentials</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="site-footer__title">Elsewhere</p>
+        <ul class="site-footer__list">
+          <li><a href="mailto:zokpodokevin.123@gmail.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/kevinkarlee" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__inner">
+      <p>&copy; <span data-current-year>2026</span> Koessi Kevin Zokpodo</p>
+      <p class="mono">Built as a static site &middot; No trackers</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

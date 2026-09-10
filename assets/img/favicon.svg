@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KZ monogram">
+  <!-- Navy tile with a "KZ" monogram. Scales cleanly to 16px tab icons. -->
+  <rect width="64" height="64" rx="12" fill="#0f1d33"/>
+  <!-- Thin accent underline, echoing the site's steel-blue accent -->
+  <rect x="14" y="47" width="36" height="3" rx="1.5" fill="#6f9fd8"/>
+  <text x="32" y="39"
+        font-family="Consolas, 'SFMono-Regular', monospace"
+        font-size="26" font-weight="700" fill="#ffffff"
+        text-anchor="middle" letter-spacing="1">KZ</text>
+</svg>

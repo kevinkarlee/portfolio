@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Merton Portfolio Problem under the Jourdain-Sbai Model | Koessi Kevin Zokpodo</title>
+<meta name="description" content="Optimal portfolio allocation and consumption under stochastic volatility: HJB derivation, numerical resolution and Monte Carlo validation of the Merton problem in the Jourdain-Sbai framework.">
+<link rel="canonical" href="https://quantstuffs.com/projects/merton-portfolio-jourdain-sbai.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Koessi Kevin Zokpodo">
+<meta property="og:title" content="Merton Portfolio Problem under the Jourdain-Sbai Model | Koessi Kevin Zokpodo">
+<meta property="og:description" content="Optimal portfolio allocation under stochastic volatility: HJB derivation, numerical resolution and Monte Carlo validation.">
+<meta property="og:url" content="https://quantstuffs.com/projects/merton-portfolio-jourdain-sbai.html">
+<meta property="og:image" content="https://quantstuffs.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://quantstuffs.com/assets/img/og-image.png">
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<script src="../assets/js/theme.js"></script>
+<script src="../assets/js/main.js" defer></script>
+<script src="https://cdn.plot.ly/plotly-cartesian-2.35.2.min.js" defer></script>
+<script src="../assets/js/charts.js" defer></script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="../index.html">
+      <span class="brand__mark" aria-hidden="true">KZ</span>
+      <span>Koessi Kevin Zokpodo</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list" id="primary-nav">
+        <li><a class="nav__link" href="../index.html#about">About</a></li>
+        <li><a class="nav__link" href="../index.html#projects">Projects</a></li>
+        <li><a class="nav__link" href="../index.html#recognition">Recognition</a></li>
+        <li><a class="nav__link" href="../index.html#credentials">Credentials</a></li>
+        <li><a class="nav__link" href="../index.html#contact">Contact</a></li>
+      </ul>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark mode">
+        <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="page-head">
+    <div class="container">
+      <p class="breadcrumb">
+        <a href="../index.html">Home</a> &nbsp;/&nbsp;
+        <a href="../index.html#projects">Projects</a> &nbsp;/&nbsp;
+        <span>Merton Portfolio Problem</span>
+      </p>
+      <h1 class="page-head__title">Merton Portfolio Problem under the Jourdain&ndash;Sbai Model</h1>
+      <div class="page-head__meta">
+        <span class="badge badge--done"><span class="badge__dot" aria-hidden="true"></span>Completed</span>
+        <span class="mono text-muted">Academic project &middot; Financial mathematics</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container project-body">
+    <article>
+
+      <section class="project-block">
+        <h2 class="project-block__title">Executive summary</h2>
+        <div class="prose">
+          <p class="lead">
+            Merton's classic solution to the optimal investment problem tells an
+            investor to hold a constant fraction of wealth in the risky asset
+            &mdash; a conclusion that rests entirely on volatility being
+            constant. This project reworks the problem under the
+            Jourdain&ndash;Sbai stochastic volatility dynamics, derives the
+            associated Hamilton&ndash;Jacobi&ndash;Bellman equation for a CRRA
+            investor, and solves it numerically. The result is an allocation that
+            is no longer constant: it acquires an intertemporal hedging
+            component whose sign is governed by the correlation between the asset
+            and its volatility.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-block">
+        <h2 class="project-block__title">Methodology</h2>
+        <div class="prose">
+          <ul>
+            <li>
+              <strong>Model setup.</strong> Specification of the wealth dynamics
+              under the Jourdain&ndash;Sbai stochastic volatility framework, in
+              which the instantaneous variance is driven by its own diffusion
+              correlated with the asset's Brownian motion, and statement of the
+              admissibility conditions on the control.
+            </li>
+            <li>
+              <strong>Dynamic programming.</strong> Derivation of the HJB
+              equation for a CRRA investor maximising expected utility of
+              terminal wealth, and reduction of the problem through the
+              homogeneity of the value function in wealth &mdash; which separates
+              the wealth dimension from the volatility state variable.
+            </li>
+            <li>
+              <strong>Verification.</strong> Checking that the candidate value
+              function satisfies the verification theorem, so the numerical
+              solution is genuinely optimal rather than merely a stationary
+              point.
+            </li>
+            <li>
+              <strong>Numerical resolution.</strong> Finite-difference solution
+              of the reduced PDE on the volatility&ndash;time grid, with an
+              implicit scheme for stability and a policy-iteration step to
+              recover the optimal control at each node.
+            </li>
+            <li>
+              <strong>Monte Carlo validation.</strong> Simulation of the wealth
+              process under the computed policy, using a discretisation scheme
+              appropriate to the volatility dynamics, and comparison of realised
+              certainty-equivalent wealth against the constant-volatility Merton
+              benchmark.
+            </li>
+            <li>
+              <strong>Sensitivity analysis.</strong> Behaviour of the optimal
+              allocation across risk aversion, correlation, volatility of
+              volatility and investment horizon.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="project-block">
+        <h2 class="project-block__title">Optimal allocation across volatility states</h2>
+        <div class="chart">
+          <div class="chart__canvas" id="chart-allocation"></div>
+          <p class="chart__fallback">
+            The interactive chart could not be loaded (the Plotly CDN is
+            unreachable). The full analysis is available in the PDF write-up.
+          </p>
+          <p class="chart__note">
+            Illustrative data &mdash; myopic curve computed analytically, hedging
+            demand shown schematically pending the final numerical results.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-block">
+        <h2 class="project-block__title">Key findings</h2>
+        <div class="prose">
+          <div class="callout">
+            <p>
+              The optimal weight splits into a <strong>myopic term</strong>,
+              identical in form to Merton's constant-volatility solution but
+              evaluated at the current variance, and an <strong>intertemporal
+              hedging term</strong> that exists only because volatility is
+              stochastic and correlated with the asset.
+            </p>
+          </div>
+          <ul>
+            <li>
+              Under the negative asset&ndash;volatility correlation typical of
+              equity markets, the hedging demand is negative: the investor holds
+              less risky asset than the myopic rule prescribes, because the asset
+              already pays off poorly in exactly the states where investment
+              opportunities deteriorate.
+            </li>
+            <li>
+              The gap between the two policies widens with the volatility of
+              volatility and with the investment horizon, and collapses to zero
+              as the horizon shortens &mdash; a short-horizon investor is
+              effectively myopic.
+            </li>
+            <li>
+              Ignoring stochastic volatility is not a neutral simplification: it
+              systematically overstates the optimal risky exposure in the
+              parameter region relevant to equity portfolios.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="panel">
+        <h2 class="panel__title">At a glance</h2>
+        <dl class="dl">
+          <dt>Status</dt>   <dd>Completed</dd>
+          <dt>Type</dt>     <dd>Academic project</dd>
+          <dt>Field</dt>    <dd>Stochastic control</dd>
+          <dt>Utility</dt>  <dd>CRRA</dd>
+        </dl>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel__title">Technical stack</h2>
+        <ul class="chips">
+          <li class="chip">MATLAB</li>
+          <li class="chip">Python</li>
+          <li class="chip">HJB / PDE</li>
+          <li class="chip">Finite differences</li>
+          <li class="chip">Monte Carlo</li>
+          <li class="chip">Stochastic calculus</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel__title">Resources</h2>
+        <!-- TODO: drop the PDF in assets/docs/, then remove `btn--pending`. -->
+        <a class="btn btn--primary btn--pending"
+           href="../assets/docs/merton-portfolio-jourdain-sbai.pdf" aria-disabled="true">
+          Full write-up (PDF)
+        </a>
+        <!-- TODO: point at the real repository, then remove `btn--pending`. -->
+        <a class="btn btn--ghost btn--pending"
+           href="https://github.com/kevinkarlee/merton-jourdain-sbai"
+           target="_blank" rel="noopener noreferrer" aria-disabled="true">
+          Source code
+        </a>
+      </div>
+    </aside>
+  </div>
+
+  <div class="container">
+    <nav class="pager" aria-label="Project navigation">
+      <a class="link-arrow" href="macro-intelligence-agent-xauusd.html">Previous project</a>
+      <a class="link-arrow" href="masi-20-futures-feasibility.html">Next project</a>
+    </nav>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand-col">
+        <p class="site-footer__brand">
+          <span class="brand__mark" aria-hidden="true">KZ</span>
+          Koessi Kevin Zokpodo
+        </p>
+        <p class="site-footer__tagline">
+          Quantitative finance research &mdash; derivatives pricing, stochastic
+          control and multi-asset risk. Seeking a final-year Master&rsquo;s
+          internship (PFE).
+        </p>
+      </div>
+
+      <div>
+        <p class="site-footer__title">Site</p>
+        <ul class="site-footer__list">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#recognition">Recognition</a></li>
+          <li><a href="../index.html#credentials">Credentials</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="site-footer__title">Elsewhere</p>
+        <ul class="site-footer__list">
+          <li><a href="mailto:zokpodokevin.123@gmail.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/kevinkarlee" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__inner">
+      <p>&copy; <span data-current-year>2026</span> Koessi Kevin Zokpodo</p>
+      <p class="mono">Built as a static site &middot; No trackers</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ==========================================================================
+     Chart data
+     --------------------------------------------------------------------------
+     The myopic curve is the exact Merton fraction  pi = (mu - r) / (gamma * s^2).
+     The two hedging curves are ILLUSTRATIVE: replace them with the policy
+     extracted from your finite-difference solver.
+     ========================================================================== -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var excessReturn = 0.06;   // mu - r
+  var gamma        = 4;      // CRRA risk aversion
+  var horizon      = 5;      // years, drives the size of the hedging term
+
+  var sigma = [], myopic = [], hedgeNeg = [], hedgePos = [];
+
+  for (var s = 0.10; s <= 0.451; s += 0.01) {
+    var vol = Math.round(s * 100) / 100;
+    var m = excessReturn / (gamma * vol * vol);
+
+    sigma.push(vol);
+    myopic.push(Math.round(m * 1000) / 10);                       // in %
+
+    // Schematic hedging demand: proportional to the correlation, to the
+    // vol-of-vol and to the remaining horizon, and vanishing as vol rises.
+    var scale = 0.35 * horizon * 0.05 / vol;
+    hedgeNeg.push(Math.round(m * (1 - scale) * 1000) / 10);       // rho < 0
+    hedgePos.push(Math.round(m * (1 + 0.6 * scale) * 1000) / 10); // rho > 0
+  }
+
+  QuantChart.render("chart-allocation", [
+    {
+      x: sigma, y: myopic, type: "scatter", mode: "lines",
+      name: "Myopic (Merton) allocation",
+      line: { width: 2.2 },
+      hovertemplate: "sigma = %{x:.2f}<br>%{y:.1f}%<extra>Myopic</extra>"
+    },
+    {
+      x: sigma, y: hedgeNeg, type: "scatter", mode: "lines",
+      name: "With hedging demand, rho = -0.5",
+      line: { width: 2, dash: "dash" },
+      hovertemplate: "sigma = %{x:.2f}<br>%{y:.1f}%<extra>rho = -0.5</extra>"
+    },
+    {
+      x: sigma, y: hedgePos, type: "scatter", mode: "lines",
+      name: "With hedging demand, rho = +0.3",
+      line: { width: 2, dash: "dot" },
+      hovertemplate: "sigma = %{x:.2f}<br>%{y:.1f}%<extra>rho = +0.3</extra>"
+    }
+  ], {
+    xaxis: { title: "Instantaneous volatility", tickformat: ".0%" },
+    yaxis: { title: "Optimal weight in the risky asset (%)" }
+  });
+});
+</script>
+
+</body>
+</html>

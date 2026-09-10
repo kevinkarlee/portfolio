@@ -1,0 +1,64 @@
+# ---------------------------------------------------------------------------
+# This is a static site with no build step, so there is little to ignore.
+# The entries below cover the files editors and operating systems leave behind.
+# ---------------------------------------------------------------------------
+
+# --- Operating system ------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- Editors and IDEs ------------------------------------------------------
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+
+# --- Logs and temporary files ----------------------------------------------
+*.log
+npm-debug.log*
+*.tmp
+*.bak
+
+# --- Environment / secrets -------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# --- Node (only if you later add a linter or formatter) ---------------------
+node_modules/
+package-lock.json
+.cache/
+
+# --- Cloudflare ------------------------------------------------------------
+.wrangler/
+.dev.vars
+
+# --- Python (tools/make-og-image.py) ---------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --- Raw media dropped in the repository root ------------------------------
+# tools/prepare-media.py turns these into the web-sized files under
+# assets/img/. Only the processed versions belong in the published site.
+/WhatsApp Image*.jpeg
+/passed-ftmo-challenge*.jpeg
+/passed-verification*.jpeg
+/Bihar Integrated Mobility Initiative*.pdf
+
+# ---------------------------------------------------------------------------
+# NOTE: assets/docs/ and assets/img/ are intentionally NOT ignored - the PDF
+# write-ups, the CV and the processed photos are part of the published site
+# and must be committed.
+# ---------------------------------------------------------------------------

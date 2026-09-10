@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Emerging Markets Sovereign Risk Premium | Koessi Kevin Zokpodo</title>
+<meta name="description" content="Construction of a frontier-market sovereign yield curve and decomposition of the country risk premium into its credit, currency and liquidity components.">
+<link rel="canonical" href="https://quantstuffs.com/projects/em-sovereign-risk-premium.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Koessi Kevin Zokpodo">
+<meta property="og:title" content="Emerging Markets Sovereign Risk Premium | Koessi Kevin Zokpodo">
+<meta property="og:description" content="Building a frontier-market sovereign yield curve and decomposing the country risk premium into credit, FX and liquidity components.">
+<meta property="og:url" content="https://quantstuffs.com/projects/em-sovereign-risk-premium.html">
+<meta property="og:image" content="https://quantstuffs.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://quantstuffs.com/assets/img/og-image.png">
+
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<script src="../assets/js/theme.js"></script>
+<script src="../assets/js/main.js" defer></script>
+<script src="https://cdn.plot.ly/plotly-cartesian-2.35.2.min.js" defer></script>
+<script src="../assets/js/charts.js" defer></script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="../index.html">
+      <span class="brand__mark" aria-hidden="true">KZ</span>
+      <span>Koessi Kevin Zokpodo</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list" id="primary-nav">
+        <li><a class="nav__link" href="../index.html#about">About</a></li>
+        <li><a class="nav__link" href="../index.html#projects">Projects</a></li>
+        <li><a class="nav__link" href="../index.html#recognition">Recognition</a></li>
+        <li><a class="nav__link" href="../index.html#credentials">Credentials</a></li>
+        <li><a class="nav__link" href="../index.html#contact">Contact</a></li>
+      </ul>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark mode">
+        <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="page-head">
+    <div class="container">
+      <p class="breadcrumb">
+        <a href="../index.html">Home</a> &nbsp;/&nbsp;
+        <a href="../index.html#projects">Projects</a> &nbsp;/&nbsp;
+        <span>EM Sovereign Risk Premium</span>
+      </p>
+      <h1 class="page-head__title">Emerging Markets Sovereign Risk Premium</h1>
+      <div class="page-head__meta">
+        <span class="badge badge--wip"><span class="badge__dot" aria-hidden="true"></span>In progress</span>
+        <span class="mono text-muted">Independent research &middot; Fixed income</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container project-body">
+    <article>
+
+      <section class="project-block">
+        <h2 class="project-block__title">Executive summary</h2>
+        <div class="prose">
+          <p class="lead">
+            Frontier sovereign debt is routinely priced off a single headline
+            spread, which bundles together three economically distinct risks:
+            the probability that the issuer defaults, the risk carried by the
+            currency of denomination, and the compensation demanded simply for
+            holding an instrument that is hard to sell. This project builds a
+            usable sovereign yield curve for markets where quoted bond prices are
+            sparse and stale, then decomposes the resulting country risk premium
+            into its credit, currency and liquidity components &mdash; so that an
+            investor can tell which risk they are actually being paid to take.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-block">
+        <h2 class="project-block__title">Methodology</h2>
+        <div class="prose">
+          <ul>
+            <li>
+              <strong>Data construction.</strong> Assembly of primary and
+              secondary market quotes for local-currency and hard-currency
+              sovereign issues, with explicit handling of stale prices, thin
+              maturities and irregular coupon structures &mdash; the practical
+              obstacle that makes frontier curves hard to build in the first
+              place.
+            </li>
+            <li>
+              <strong>Curve fitting.</strong> Bootstrapping of zero-coupon rates
+              where the maturity grid allows, and parametric fitting
+              (Nelson&ndash;Siegel&ndash;Svensson) where it does not, with
+              regularisation to prevent the sparse long end from driving the
+              whole curve.
+            </li>
+            <li>
+              <strong>Credit component.</strong> Extraction of a risk-neutral
+              default intensity from hard-currency spreads over the matching
+              risk-free curve, under a recovery assumption tested for
+              sensitivity.
+            </li>
+            <li>
+              <strong>Currency component.</strong> Isolation of the FX risk
+              premium from the differential between local-currency and
+              hard-currency curves, adjusted for covered interest parity
+              deviations where forward markets exist.
+            </li>
+            <li>
+              <strong>Liquidity component.</strong> Estimation of the residual
+              liquidity premium from bid&ndash;ask spreads, turnover, issue size
+              and price staleness, benchmarked against a matched liquid
+              comparator.
+            </li>
+            <li>
+              <strong>Validation.</strong> Out-of-sample repricing of bonds
+              excluded from the fit, and stability testing of the decomposition
+              across time and across recovery assumptions.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="project-block">
+        <h2 class="project-block__title">Risk premium decomposition by maturity</h2>
+        <div class="chart">
+          <div class="chart__canvas" id="chart-decomposition"></div>
+          <p class="chart__fallback">
+            The interactive chart could not be loaded (the Plotly CDN is
+            unreachable). The full analysis will be available in the PDF
+            write-up.
+          </p>
+          <p class="chart__note">
+            Illustrative data &mdash; research in progress, results not yet
+            final.
+          </p>
+        </div>
+      </section>
+
+      <section class="project-block">
+        <h2 class="project-block__title">Working hypotheses</h2>
+        <div class="prose">
+          <div class="callout">
+            <p>
+              This project is ongoing. The points below are the hypotheses being
+              tested, not settled conclusions &mdash; they will be revised as the
+              empirical work is completed.
+            </p>
+          </div>
+          <ul>
+            <li>
+              The liquidity component is largest at the short end, where
+              genuinely tradable paper is scarcest, rather than at the long end
+              where intuition would place it.
+            </li>
+            <li>
+              Credit and currency premia are not independent: fiscal stress and
+              currency stress arrive together, so treating them as separable
+              understates tail risk.
+            </li>
+            <li>
+              A meaningful share of what is reported as country risk premium is
+              compensation for illiquidity, which means it should not be applied
+              wholesale as a discount-rate adjustment in valuation work.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    </article>
+
+    <aside class="sidebar">
+      <div class="panel">
+        <h2 class="panel__title">At a glance</h2>
+        <dl class="dl">
+          <dt>Status</dt> <dd>In progress</dd>
+          <dt>Type</dt>   <dd>Independent research</dd>
+          <dt>Role</dt>   <dd>Sole author</dd>
+          <dt>Asset class</dt> <dd>Sovereign fixed income</dd>
+        </dl>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel__title">Technical stack</h2>
+        <ul class="chips">
+          <li class="chip">Python</li>
+          <li class="chip">NumPy / SciPy</li>
+          <li class="chip">Nelson-Siegel-Svensson</li>
+          <li class="chip">Credit modelling</li>
+          <li class="chip">R</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h2 class="panel__title">Resources</h2>
+        <!-- TODO: drop the PDF in assets/docs/, then remove `btn--pending`. -->
+        <a class="btn btn--primary btn--pending"
+           href="../assets/docs/em-sovereign-risk-premium.pdf" aria-disabled="true">
+          Full write-up (PDF)
+        </a>
+        <!-- TODO: point at the real repository, then remove `btn--pending`. -->
+        <a class="btn btn--ghost btn--pending"
+           href="https://github.com/kevinkarlee/em-sovereign-risk-premium"
+           target="_blank" rel="noopener noreferrer" aria-disabled="true">
+          Source code
+        </a>
+      </div>
+    </aside>
+  </div>
+
+  <div class="container">
+    <nav class="pager" aria-label="Project navigation">
+      <a class="link-arrow" href="bihar-integrated-mobility-initiative.html">Previous project</a>
+      <a class="link-arrow" href="systemic-stress-testing-framework.html">Next project</a>
+    </nav>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand-col">
+        <p class="site-footer__brand">
+          <span class="brand__mark" aria-hidden="true">KZ</span>
+          Koessi Kevin Zokpodo
+        </p>
+        <p class="site-footer__tagline">
+          Quantitative finance research &mdash; derivatives pricing, stochastic
+          control and multi-asset risk. Seeking a final-year Master&rsquo;s
+          internship (PFE).
+        </p>
+      </div>
+
+      <div>
+        <p class="site-footer__title">Site</p>
+        <ul class="site-footer__list">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#recognition">Recognition</a></li>
+          <li><a href="../index.html#credentials">Credentials</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="site-footer__title">Elsewhere</p>
+        <ul class="site-footer__list">
+          <li><a href="mailto:zokpodokevin.123@gmail.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/kevinkarlee" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__inner">
+      <p>&copy; <span data-current-year>2026</span> Koessi Kevin Zokpodo</p>
+      <p class="mono">Built as a static site &middot; No trackers</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ==========================================================================
+     Chart data - SYNTHETIC placeholder.
+     Stacked components must sum to the total spread; replace all four arrays
+     with the output of the decomposition.
+     ========================================================================== -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var maturities = ["1Y", "2Y", "3Y", "5Y", "7Y", "10Y", "15Y"];
+
+  // Spread components in basis points.
+  var credit    = [155, 182, 205, 246, 271, 298, 322];
+  var currency  = [ 96, 118, 137, 168, 186, 205, 219];
+  var liquidity = [128, 104,  92,  78,  71,  66,  74];
+
+  var total = credit.map(function (v, i) {
+    return v + currency[i] + liquidity[i];
+  });
+
+  QuantChart.render("chart-decomposition", [
+    { x: maturities, y: credit, type: "bar", name: "Credit",
+      hovertemplate: "%{y} bp<extra>Credit</extra>" },
+    { x: maturities, y: currency, type: "bar", name: "Currency",
+      hovertemplate: "%{y} bp<extra>Currency</extra>" },
+    { x: maturities, y: liquidity, type: "bar", name: "Liquidity",
+      hovertemplate: "%{y} bp<extra>Liquidity</extra>" },
+    {
+      x: maturities, y: total, type: "scatter", mode: "lines+markers",
+      name: "Total spread",
+      line: { width: 2, dash: "dot" },
+      marker: { size: 6 },
+      hovertemplate: "%{y} bp<extra>Total</extra>"
+    }
+  ], {
+    barmode: "stack",
+    bargap: 0.35,
+    xaxis: { title: "Maturity" },
+    yaxis: { title: "Spread over risk-free (bp)" }
+  });
+});
+</script>
+
+</body>
+</html>
