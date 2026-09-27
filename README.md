@@ -84,21 +84,14 @@ Then open <http://localhost:8000>.
 
 ## Before you publish: the placeholder checklist
 
-The site is already wired to **https://quantstuffs.com**, the GitHub account
-**kevinkarlee** and the contact address **zokpodokevin.123@gmail.com**.
+The site is fully wired: **https://quantstuffs.com**, the GitHub account
+**kevinkarlee**, the contact address **zokpodokevin.123@gmail.com** and the
+LinkedIn profile **/in/koessi-kevin-zokpodo**. There are no placeholders left
+to replace.
 
-One placeholder is still live — replace it across the repository before you
-share the link with anyone:
-
-| Find | Replace with |
-| --- | --- |
-| `YOUR-LINKEDIN-HANDLE` | your LinkedIn vanity name |
-
-Then check the items below, all of which are marked with a `TODO:` comment in
+The items below are optional polish, each marked with a `TODO:` comment in
 the HTML:
 
-- [ ] **LinkedIn handle.** Still a placeholder in the contact card and the
-      footer of every page — the link is broken until you replace it.
 - [ ] **PFE window.** The hero badge and the "Looking for" fact say
       *final-year Master's internship (PFE)* without dates. Add the exact months
       once you know them (`index.html`, hero section).
